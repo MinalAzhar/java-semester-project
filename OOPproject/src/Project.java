@@ -1,5 +1,9 @@
 import java.util.Scanner;
 class Display extends Thread{
+	/* In class display we will simply deal with the investments including interest 
+	 * and this class will help you to know about your intrest rate or gain after 
+	 * specific years
+	 */
 	public void run() {
 		Scanner sc=new Scanner(System.in);
 		int years = 0;
@@ -22,6 +26,11 @@ class Display extends Thread{
 }
 class shareInvestment extends Thread{
 	public void run() {
+		/* In  share investment class we will deal with share investments 
+		 * and its leading profit or loss.And also we can calculate our profit or 
+		 * loss for each day according to spended buying price and current 
+		 * market price.
+		 */
 		Scanner sc=new Scanner (System.in);
 		System.out.println("Enter your buying price per share : ");
 		double buyingprice=sc.nextDouble();
@@ -58,6 +67,9 @@ class shareInvestment extends Thread{
 	}
 
 class propertyInvestment extends Thread{
+	/*if you have invested for property or you are on your way to
+	 * then this will help you found out about your profit or loss for each investment.
+	 */
 	public void run() {
 		Scanner sc=new Scanner(System.in);
 		int i=1;
@@ -106,11 +118,11 @@ public class Project{
 	}
 		else if(a==2) {
 			propertyInvestment p1=new propertyInvestment();
-			p1.start();
+			p1.run();
 		}
 		else if(a==3) {
 			Display d=new Display();
-			d.start();
+			d.run();
 		}
 		else {
 			System.out.println("WRONG CHOICE!");
