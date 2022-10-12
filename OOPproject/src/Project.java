@@ -1,10 +1,15 @@
 import java.util.Scanner;
 class Display extends Thread{
 	/* In class display we will simply deal with the investments including interest 
-	 * and this class will help you to know about your intrest rate or gain after 
+	 * and this class will help you to know about your interest rate or gain after 
 	 * specific years
 	 */
 	public void run() {
+		/*run method contains calculations for interest dealings and will
+		 * tell user that how many years they will have to wait for their desired
+		 *  amount.
+		 */
+		while(true) {
 		Scanner sc=new Scanner(System.in);
 		int years = 0;
 		System.out.println("Enter your amount: ");
@@ -15,15 +20,24 @@ class Display extends Thread{
 	    	double interest = i * .075;
 	        i += interest;
 	        years ++;
-	    }
+	    }//end of while loop
 
 	    System.out.println("It will take " + years + " years for "+i+" investment to be worth at least "
 	    		+j);
+	    System.out.println("Enter "+ "y"+" to continue and "+ "n" +" to quite");
+		char p=sc.next().charAt(0);
+		if(p=='y') {
+			continue;
+		}
+		else {
+			break;
+		}
+		}
 
 	    
-	}
+	}// end of run method
 	
-}
+}//end of Display  class
 class shareInvestment extends Thread{
 	public void run() {
 		/* In  share investment class we will deal with share investments 
@@ -56,15 +70,19 @@ class shareInvestment extends Thread{
 					System.out.println("After day "+day+" you have not eanrings per share ");
 				}
 			day+=1;
-			try {
-			Thread.sleep(5000);;}
-			catch(InterruptedException e){
-				e.printStackTrace();
+			System.out.println("Enter "+ "y"+" to continue and "+ "n" +" to quite");
+			char p=sc.next().charAt(0);
+			if(p=='y') {
+				continue;
 			}
-		}
+			else {
+				break;
+			}
+			
+		}//end of while loop
 		sc.close();
-	}
-	}
+	}// end of run method
+	}//end of class
 
 class propertyInvestment extends Thread{
 	/*if you have invested for property or you are on your way to
@@ -97,19 +115,31 @@ class propertyInvestment extends Thread{
 			System.out.println("WRONG INPUT!");
 		}
 		i+=1;
-	}
+		System.out.println("Enter "+ "y"+" to continue and "+ "n" +" to quite");
+		char p=sc.next().charAt(0);
+		if(p=='y') {
+			continue;
+		}
+		else {
+			break;
+		}
+	}//end of while loop
 		
-	}
+	}// end of run method
  
-}
+}// end of class
 public class Project{
 	public static void main(String[] args) {
+		try {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("********WELCOME TO INVESTMENT DEALINGS********");
 		while(true) {
 		System.out.println("Press 1 for share investments "
 				+ "press 2 for property investments"+
 				"press 3 for knowing your interest rate");
+		/*when the user will enter his choice , the leading class object will be
+		 * created and it will follow it's respective code.
+		 */
 		System.out.println("Enter your choice : ");
 		int a=sc.nextInt();
 		if(a==1) {
@@ -127,7 +157,13 @@ public class Project{
 		else {
 			System.out.println("WRONG CHOICE!");
 		}
-		sc.close();
-}
-}
-}
+		}
+		
+		
+}//end of while loop
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}//end of main method
+}// end of public class Project
