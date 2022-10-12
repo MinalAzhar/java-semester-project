@@ -130,7 +130,6 @@ class propertyInvestment extends Thread{
 }// end of class
 public class Project{
 	public static void main(String[] args) {
-		try {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("********WELCOME TO INVESTMENT DEALINGS********");
 		while(true) {
@@ -157,13 +156,8 @@ public class Project{
 		else {
 			System.out.println("WRONG CHOICE!");
 		}
-		}
-		
+	
 		
 }//end of while loop
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	
 }//end of main method
 }// end of public class Project
